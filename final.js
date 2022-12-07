@@ -1,27 +1,31 @@
 let x = 100;
 let y = 100;
-let select1;
-let select2;
-let select3;
+let select1 = false;
+let select2 = false;
+let select3 = false;
 function preload(){
 	
 }
 
 function setup() {
 	createCanvas(800,800);
-	textSize = (50);
+
 	select1 = createButton('Select Jade');
+	  select1.style('font-size', '30px');
+		select1.style('color:blue');
+  	select1.style('background-color', '#ffff3f');
+		select1.mousePressed(selectOne);
 	select1.position(500,100);
 	select2 = createButton('Select Sasha');
+	select2.mousePressed(selectTwo);
 	select2.position(500,300);
 	select3 = createButton('Select Mini');
+	select3.mousePressed(selectThree);
 	select3.position(500,500);
 }
 
 function draw() {
-	Jade(100,100);
-	Sasha(100,300);
-	Mini(300,300);
+	characterPick();
 }
 
 function Jade(x,y){
@@ -65,6 +69,37 @@ function Mini(x,y){
 	rect(x+60,y+140,80,120,10); //body
 }
 
+function selectOne(){
+	select1 = true;
+	select2 = false;
+	select3 = false;
+}
+
+function selectTwo(){
+	select2 = true;
+	select1 = false;
+	select3 = false;
+}
+
+function selectThree(){
+	select3 = true;
+	select1 = false;
+	select2 = false;
+}
+
+function characterPick(){
+	clear();
+		if (select1 == true) {
+		Jade(100,100);
+	}
+	
+	if(select2 == true){
+	Sasha(100,300);
+	}
+	if(select3 == true){
+	Mini(300,300);
+	}
+}
 function Students(){
 	circle(x+100,y+100,70);
 	rect(x+60,y+140,80,120,10); 
