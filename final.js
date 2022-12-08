@@ -1,31 +1,53 @@
 let x = 100;
 let y = 100;
+let scenes = 0;
 let select1 = false;
 let select2 = false;
 let select3 = false;
 function preload(){
-	
+	auditorium = loadImage('auditorium.jpeg');
 }
 
 function setup() {
 	createCanvas(800,800);
+	startScene();
+}
 
-	select1 = createButton('Select Jade');
-	  select1.style('font-size', '30px');
-		select1.style('color:blue');
-  	select1.style('background-color', '#ffff3f');
-		select1.mousePressed(selectOne);
-	select1.position(500,100);
+function draw() {
+	if(scenes == 0){
+		
+		characterPick();
+	}
+	
+	if(scenes == 1){
+		clear();
+		image(auditorium,100,100, 800, 800);
+		///-----draw jade-----//
+		if (select1 == true) {
+			select1button.hide();
+			clear();
+			image(auditorium,100,100, 800, 800);
+			Jade(400,400);
+		}
+		
+	}
+	
+	
+}
+
+function startScene(){
+	select1button = createButton('Select Jade');
+	  select1button.style('font-size', '30px');
+		select1button.style('color:blue');
+	select1button.style('background-color', '#ffff3f');
+		select1button.mousePressed(selectOne);
+	select1button.position(500,100);
 	select2 = createButton('Select Sasha');
 	select2.mousePressed(selectTwo);
 	select2.position(500,300);
 	select3 = createButton('Select Mini');
 	select3.mousePressed(selectThree);
 	select3.position(500,500);
-}
-
-function draw() {
-	characterPick();
 }
 
 function Jade(x,y){
@@ -87,9 +109,10 @@ function selectThree(){
 	select2 = false;
 }
 
+
 function characterPick(){
-	clear();
-		if (select1 == true) {
+	clear(); 
+	if (select1 == true) {
 		Jade(100,100);
 	}
 	
@@ -99,8 +122,15 @@ function characterPick(){
 	if(select3 == true){
 	Mini(300,300);
 	}
+	
 }
 function Students(){
 	circle(x+100,y+100,70);
 	rect(x+60,y+140,80,120,10); 
+}
+
+function keyPressed(){
+	if(keyCode == ENTER){
+		scenes += 1;
+	}
 }
