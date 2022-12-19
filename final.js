@@ -27,7 +27,8 @@ function preload(){
 
 function setup() {
 	createCanvas(800,800);
-	startScene();
+	//startScene();
+startScenes();
 	for(i = 0; i < 30; i++){
 		miniArray.push(new mini(i));
 	}
@@ -282,17 +283,6 @@ function draw() {
 		if(select1 == true){
 			
 		decisionOne();
-			/*
-			if(yesone == true){
-				yesbutton.hide();
-				nobutton.hide();				
-			}			
-			if(noone == true){
-				yesbutton.hide();
-				nobutton.hide();
-			}
-			*/
-			//pickOne();
 		}
 	}
 	if(scenes == 8){
@@ -350,11 +340,24 @@ function draw() {
 		}
 	}
 	if(scenes == 12){
-		if(select == 1){
+		if(select1 == 1){
 			decisionThree();	
 		}		
 }
-
+function startScenes(){ // the buttons that are used to pick the character you want
+	select1button = createButton('Select Jade');
+	  select1button.style('font-size', '20px');
+		select1button.style('color:purple');
+	select1button.style('background-color', '#4DD3FF');
+		select1button.mousePressed(selectOne);
+	select1button.position(200,100);
+	select3button = createButton('Select Mini');
+	select3button.style('font-size', '20px');
+		select3button.style('color:pink');
+	select3button.style('background-color', '#BA3DFF')
+	select3button.mousePressed(selectThree);
+	select3button.position(600,100);
+}
 function decisionOne(){
 	fill(28,233,255);
 	rect(0,0,700,100,30);
@@ -455,21 +458,15 @@ function yesOne(){ // for the first yes
 	text('yay youre now apaprt of the team and soon in your',0,400);
 	text('junior year youll become captain',0,430);
 	yes+=1;
-	
 }
 function noOne(){ // for the first no
-//	noone = true;
-//	yesone = false;
-	
-//	yesbutton.hide();
-//	nobutton.hide();
 	background(242,66,245);
 	fill(254,34,34);
 	textFont(font1,20);
 	text('Aww you didnt join.You couldve done so well',0,400);
-	no+=1;
-	
+	no+=1;	
 }
+	/*
 function startScene(){ // the buttons that are used to pick the character you want
 	select1button = createButton('Select Jade');
 	  select1button.style('font-size', '20px');
@@ -484,7 +481,7 @@ function startScene(){ // the buttons that are used to pick the character you wa
 	select3button.mousePressed(selectThree);
 	select3button.position(600,100);
 }
-
+*/
 function Jade(x,y){
 	noStroke();
 	fill(0);
@@ -544,11 +541,8 @@ function selectOne(){ // when Jade is picked
 
 function selectThree(){ // when Mini is picked
 	select3 = true;
-	select1 = false;
-	
+	select1 = false;	
 }
-
-
 function characterPick(){
 	clear(); 
 	if (select1 == true) {
@@ -557,14 +551,12 @@ function characterPick(){
 		text('This is Jade. Jade loves to play soccer her favorite color is pink and her dream school is to go to NYU',100,600);
 		Jade(350,300);
 	}
-	
 	if(select3 == true){
 		textFont(font3,15);
 		fill(0);
 		text('This is Mini. Mini loves to play the trumpet her favorite color is purple and her dream school is to go to NYU',100,600);
 	Mini(350,300);
 	}
-	
 }
 function Students(x,y){ // code for random students
 	fill(128,128,128);
@@ -589,7 +581,6 @@ function Coach(x,y){
   rect(x+61,y+140,20,160,10);
   rect(x+90,y+160,20,140,10);
   rect(x+120,y+140,20,160,10);
-	
 }
 
 class mini {
@@ -623,12 +614,13 @@ class firstYears{ // this is a class I made for the students
 		stroke(0);
 		Students(this.x,this.y);
 	}
-	
+}
 }
 
 function keyPressed(){ // controls the scenes
 	if(keyCode == ENTER){
 		scenes += 1;
 	}
+
 }
-}
+
