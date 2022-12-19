@@ -7,13 +7,21 @@ let select3 = false;
 let studentArray = [];
 let yes = 0;
 let no = 0;
+let chatting;
+let c1;
+let c2;
 function preload(){
-	auditorium = loadImage('auditorium.jpeg');
-	lunchroom = loadImage('lunchroom.webp');
-	JBedroom = loadImage('JBedroom.jpeg'); //jades bedroom
-	SBedroom = loadImage('SBedroom.jpeg'); // sashas bedroom
-	MBedroom = loadImage('MBedroom.jpeg');// Minis bedroom
-	field = loadImage('soccer field.webp');
+	auditorium = loadImage('Images/auditorium.jpeg');
+	lunchroom = loadImage('Images/lunchroom.webp');
+	JBedroom = loadImage('Images/JBedroom.jpeg'); //jades bedroom
+	SBedroom = loadImage('Images/SBedroom.jpeg'); // sashas bedroom
+	MBedroom = loadImage('Images/MBedroom.jpeg');// Minis bedroom
+	field = loadImage('Images/soccer_field.webp');
+	highschool = loadImage('Images/highschool.webp');
+	font1 = loadFont('font/font1.ttf');
+	font2 = loadFont('font/font2.ttf');
+	font3 = loadFont('font/font3.otf');
+//	chatting = loadSound('629879__kyles__crowd-int-med-packed-');
 }
 
 function setup() {
@@ -25,16 +33,64 @@ function setup() {
 	for(i = 0; i < 5; i++){
 		studentArray.push(new firstYears(i));
 	}
+	c1 = color(255,158,248);
+	c2 = color(158,73,255);
 }
 
 function draw() {
-	if(scenes == 0){
+		if(scenes == 0){
 		
 		characterPick();
 	}
+	if(scenes == 1){ // color for the title matches with jade's color pattern
+		//background(28,233,255);
+		select1button.hide();
+			select2button.hide();
+			select3button.hide();
+		if(select1 == true){
+			image(highschool,0,0, 1000, 800);
+		textFont(font1,100);
+			fill(254,67,132);
+		text('WELCOME to', 0,150);
+		textFont(font2,70);
+			fill(0);
+		text('HighSchool High',100,230); // lol thats corny
+			textFont(font1, 15);
+			fill(0);
+			text('press the enter or return key to continue through scenes',100,250);
+			Jade(400,400);
+		}
+		if(select2 == true){ // color for the title matches with sasha's color pattern
+			image(highschool,0,0, 1000, 800);
+		textFont(font1,100);
+			fill(145,255,203);
+		text('WELCOME to', 0,150);
+		textFont(font2,70);
+			fill(186,61,255);
+		text('HighSchool High',100,230); // lol thats corny
+			textFont(font1, 15);
+			fill(0);
+			text('press the enter or return key to continue through scenes',100,250);
+			Sasha(400,400);
+		}
+		if(select3 == true){ // color for the title matches with mini's color pattern
+			image(highschool,0,0, 1000, 800);
+		textFont(font1,100);
+			fill(65,94,255);
+		text('WELCOME to', 0,150);
+		textFont(font2,70);
+			fill(217,158,209);
+		text('HighSchool High',100,230); // lol thats corny
+			textFont(font1, 15);
+			fill(0);
+			text('press the enter or return key to continue through scenes',100,250);
+			Mini(400,400);
+		}
+	}
 	
-	if(scenes == 1){
+	if(scenes == 2){
 		clear();
+		//chatting.play();
 	//	image(auditorium,100,100, 800, 800);
 		///-----draw jade-----//
 		if (select1 == true) { // code for when jade is selected
@@ -42,7 +98,7 @@ function draw() {
 			select2button.hide();
 			select3button.hide();
 			clear();
-			image(auditorium,100,100, 800, 800);
+			image(auditorium,0,0, 800, 800);
 				for(j=0;j<30;j++){
   studentArray[j].show(); // this is the array for the students
 }
@@ -58,7 +114,7 @@ function draw() {
 			select2button.hide();
 			select3button.hide();
 			clear();
-			image(auditorium,100,100, 800, 800);
+			image(auditorium,0,0, 800, 800);
 				for(j=0;j<30;j++){
   studentArray[j].show(); // this is the array for the students
 }
@@ -74,7 +130,7 @@ function draw() {
 			select2button.hide();
 			select3button.hide();
 			clear();
-			image(auditorium,100,100, 800, 800);
+			image(auditorium,0,0, 800, 800);
 				for(j=0;j<30;j++){
   studentArray[j].show(); // this is the array for the students
 }
@@ -86,13 +142,13 @@ function draw() {
 			Mini(350,400);
 		}
 	}
-	if(scenes == 2){
+	if(scenes == 3){
 		if (select1 == true) { // code for when jade is selected
 			select1button.hide();
 			select2button.hide();
 			select3button.hide();
 			clear();
-			image(lunchroom,100,100, 800, 800);
+			image(lunchroom,0,0, 800, 800);
 				for(j=0;j<5;j++){
   studentArray[j].show(); // this is the array for the students
 }
@@ -108,7 +164,7 @@ function draw() {
 			select2button.hide();
 			select3button.hide();
 			clear();
-			image(lunchroom,100,100, 800, 800);
+			image(lunchroom,0,0, 800, 800);
 				for(j=0;j<5;j++){
   studentArray[j].show(); // this is the array for the students
 }
@@ -124,7 +180,7 @@ function draw() {
 			select2button.hide();
 			select3button.hide();
 			clear();
-			image(lunchroom,100,100, 800, 800);
+			image(lunchroom,0,0, 800, 800);
 		for(j=0;j<5;j++){
   studentArray[j].show(); // this is the array for the students
 }
@@ -137,13 +193,13 @@ function draw() {
 		}
 		
 	}
-	if(scenes == 3){
+	if(scenes == 4){
 		if (select1 == true) { // code for when jade is selected
 			select1button.hide();
 			select2button.hide();
 			select3button.hide();
 			clear();
-			image(JBedroom,100,100, 800, 800);
+			image(JBedroom,0,0, 800, 800);
 				
 			fill(0,0,0,50);
 			rect(100,100,700,100,30);
@@ -167,7 +223,7 @@ function draw() {
 			select2button.hide();
 			select3button.hide();
 			clear();
-			image(SBedroom,100,100, 800, 800);
+			image(SBedroom,0,0, 800, 800);
 			
 			fill(0,0,0,50);
 			rect(100,100,700,100,30);
@@ -191,7 +247,7 @@ function draw() {
 			select2button.hide();
 			select3button.hide();
 			clear();
-			image(MBedroom,100,100, 800, 800);
+			image(MBedroom,0,0, 800, 800);
 				
 			fill(0,0,0,50);
 			rect(100,100,700,100,30);
@@ -212,14 +268,14 @@ function draw() {
 		}
 		
 	}
-	if(scenes == 4){
+	if(scenes == 5){
 		
 	if (select1 == true) { // code for when jade is selected
 			select1button.hide();
 			select2button.hide();
 			select3button.hide();
 			clear();
-			image(field,100,100, 800, 800);
+			image(field,0,0, 800, 800);
 				Mini(550,200);
 			Sasha(650,200);
 			fill(0,0,0,50);
@@ -238,7 +294,7 @@ function draw() {
 			select2button.hide();
 			select3button.hide();
 			clear();
-			image(field,100,100, 800, 800);
+			image(field,0,0, 800, 800);
 			Jade(550,200);
 			Mini(650,200);
 			fill(0,0,0,50);
@@ -257,7 +313,7 @@ function draw() {
 			select2button.hide();
 			select3button.hide();
 			clear();
-			image(field,100,100, 800, 800);		
+			image(field,0,0, 800, 800);		
 			Jade(550,200);
 			Sasha(650,200);
 			fill(0,0,0,50);
@@ -273,7 +329,7 @@ function draw() {
 		}
 	
 	}
-	if(scenes == 5){
+	if(scenes == 6){
 			if (select1 == true) { // code for when jade is selected
 			select1button.hide();
 			select2button.hide();
@@ -286,7 +342,8 @@ function draw() {
 			fill(255);
 			textSize(13);
 			text('After Jades First Day she thought to herself of the endless possibilites of highschool', 100,150);
-			Jade(350,400);
+			Jade(350,450);
+			Coach(500,400);
 		}
 		if (select2 == true) { // code for when sasha is selected
 			select1button.hide();
@@ -299,7 +356,7 @@ function draw() {
 			fill(255);
 			textSize(15);
 			text('After Sasha First Day she thought to herself of the endless possibilites of highschool', 100,150);
-			Sasha(350,400);
+			Sasha(350,450);
 			Coach(500,400);
 		}
 		if (select3 == true) { // code for when mini is selected
@@ -314,7 +371,8 @@ function draw() {
 			fill(255);
 			textSize(15);
 			text('After Minis First Day she thought to herself of the endless possibilites of highschool', 100,150);
-			Mini(350,400);
+			Mini(350,450);
+			Coach(500,400);
 		}
 		
 		
@@ -386,7 +444,16 @@ function Mini(x,y){
 	rect(x+60,y+140,80,120,10); //body
 }
 
+function rect1(){
+  noStroke();
+  for(i = 0;i<=799;i++){
+    fill(lerpColor(c1,c2,i/799)); 
+    rect(0,0+i,800,i);
+  }
+}
+
 function selectOne(){ // when Jade is picked
+	rect1();
 	select1 = true;
 	select2 = false;
 	select3 = false;
@@ -408,13 +475,22 @@ function selectThree(){ // when Mini is picked
 function characterPick(){
 	clear(); 
 	if (select1 == true) {
+		textFont(font3,15);
+		fill(0);
+		text('This is Jade. Jade loves to play soccer her favorite color is pink and her dream school is to go to NYU',100,600);
 		Jade(350,300);
 	}
 	
 	if(select2 == true){
+		textFont(font3,15);
+		fill(0);
+		text('This is Sasha. Jade loves to play soccer her favorite color is blue and her dream school is to go to CalU',100,600);
 	Sasha(350,300);
 	}
 	if(select3 == true){
+		textFont(font3,15);
+		fill(0);
+		text('This is Mini. Mini loves to play the trumpet her favorite color is purple and her dream school is to go to NYU',100,600);
 	Mini(350,300);
 	}
 	
