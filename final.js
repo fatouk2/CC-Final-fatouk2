@@ -280,7 +280,9 @@ function draw() {
 	}
 	if(scenes == 7){
 		if(select1 == true){
+			
 		decisionOne();
+			/*
 			if(yesone == true){
 				yesbutton.hide();
 				nobutton.hide();				
@@ -289,20 +291,68 @@ function draw() {
 				yesbutton.hide();
 				nobutton.hide();
 			}
+			*/
 			//pickOne();
 		}
 	}
 	if(scenes == 8){
 		if(select1 == true){
-				yesbutton.hide();
+				yesbutton.hide(); // for some reason these buttons are not hiding
 				nobutton.hide();
 		clear();
 		image(classroom,0,0,800,800);
+			fill(255);
 			Students(600,400);
 			fill(28,233,255);
 			rect(0,0,700,100,30);
+			textFont(font1,15);
+			fill(255);
+			text('A guest speaker came in today to talk about a college program that',0,50);
+			text('could help you through you highschool experiene',0,70);
 		}
 	}
+	if(scenes == 9){
+		if(select1 == true){
+				yesbutton.hide(); // for some reason these buttons are not hiding
+				nobutton.hide();
+			decisionTwo();
+		}		
+	}
+	if(scenes == 10){		
+		if(select1 == true){
+				yesbutton.hide();
+		nobutton.hide();
+		yestwo.hide();
+		notwo.hide();
+		clear();
+			image(JBedroom,0,0,800,800);
+			Jade(400,400);
+			stroke(0);
+			fill(28,233,255);
+			rect(0,0,780,100,30);
+			textFont(font1,15);
+			fill(255);
+			text('Its exam season and instead of studying Jade has been hanging out with freinds',0,50);
+			text('which is totally fine but now this week Jade needs to study',0,70);
+		}
+	}
+	if(scenes == 11){
+		if(select == 1){
+		image(JBedroom,0,0,800,800);
+			Jade(400,400);
+			stroke(0);
+			fill(28,233,255);
+			rect(0,0,780,100,30);
+			textFont(font1,15);
+			fill(255);
+			text('Jades phone begins to ring',0,50);
+			text('which is totally fine but now this week Jade needs to study',0,70);
+		}
+	}
+	if(scenes == 12){
+		if(select == 1){
+			decisionThree();	
+		}		
 }
 
 function decisionOne(){
@@ -316,39 +366,87 @@ function decisionOne(){
 	yesbutton.style('color:green');
 	yesbutton.position(250,100);
 	yesbutton.mousePressed(yesOne);
-//	yesbutton.mousePressed(yesOne);
 		nobutton = createButton('NO');
 	nobutton.style('font-size','20px');
 	nobutton.style('color:red');
 	nobutton.position(350,100);
 	nobutton.mousePressed(noOne);
-	//pickOne();
-//	nobutton.mousePressed(noOne);
+}
+function decisionTwo(){
+	fill(28,233,255);
+			rect(0,0,700,100,30);
+			textFont(font1,15);
+			fill(255);
+			text('The program has a 95% success in getting students into great universities.',0,50);
+			fill(0);
+			text('Do you decide to apply?',0,70);
+	yestwo = createButton('YES');
+	yestwo.style('font-size','20px');
+	yestwo.style('color:green');
+	yestwo.position(250,100);
+	yestwo.mousePressed(yesTwo);
+		notwo = createButton('NO');
+	notwo.style('font-size','20px');
+	notwo.style('color:red');
+	notwo.position(350,100);
+	notwo.mousePressed(noTwo);
+}
+function decisionThree(){
+		stroke(0);
+			fill(28,233,255);
+			rect(0,0,780,100,30);
+			textFont(font1,15);
+			fill(255);
+			text('Jades phone begins to ring its her freinds asking her to come hang out',0,50);
+			text('Do you go hangout with your freinds or study?',0,70);
+	yesthree = createButton('Study');
+	yesthree.style('font-size','20px');
+	yesthree.style('color:green');
+	yesthree.position(250,100);
+	yesthree.mousePressed(yesThree);
+	nothree = createButton('HangOut');
+	nothree.style('font-size','20px');
+	nothree.style('color:red');
+	nothree.position(350,100);
+	nothree.mousePressed(noTwo);
 }
 
-function pickOne(){
-	clear();
-	if(yesone == true){
-		background(242,66,245);
-	fill(22,254,77);
+function yesThree(){
+	background(242,66,245);
+		fill(22,254,77);
 	textFont(font1,20);
-	text('yay youre now apaprt of the team and soon in your',0,400);
-	text('junior year youll become captain',0,430);
+	text('yay since you studied for your exams you felt more prepared',0,400);
+	//text('junior year youll become captain',0,430);
+	yes+=1;	
+}
+
+function noThree(){
+		background(242,66,245);
+		fill(22,254,77);
+	textFont(font1,20);
+	text('sadly you failed your exams',0,400);
+	//text('junior year youll become captain',0,430);
 	yes+=1;
-	}
-	if(noone == true){
+}
+
+function yesTwo(){
+background(242,66,245);
+		fill(22,254,77);
+	textFont(font1,20);
+	text('yay congrats after the applying you got in the program',0,400);
+	//text('junior year youll become captain',0,430);
+	yes+=1;
+}
+function noTwo(){
 		background(242,66,245);
 	fill(254,34,34);
 	textFont(font1,20);
 	text('Aww you didnt join.You couldve done so well',0,400);
 	no+=1;
-	}
 }
-
-function yesOne(){
-yesone = true;
-	noone = false;
-	/*
+function yesOne(){ // for the first yes
+//yesone = true;
+	//noone = false;	
 //	yesbutton.hide();
 //	nobutton.hide();
 	background(242,66,245);
@@ -357,12 +455,12 @@ yesone = true;
 	text('yay youre now apaprt of the team and soon in your',0,400);
 	text('junior year youll become captain',0,430);
 	yes+=1;
-	*/
+	
 }
-function noOne(){
-	noone = true;
-	yesone = false;
-	/*
+function noOne(){ // for the first no
+//	noone = true;
+//	yesone = false;
+	
 //	yesbutton.hide();
 //	nobutton.hide();
 	background(242,66,245);
@@ -370,9 +468,8 @@ function noOne(){
 	textFont(font1,20);
 	text('Aww you didnt join.You couldve done so well',0,400);
 	no+=1;
-	*/
+	
 }
-
 function startScene(){ // the buttons that are used to pick the character you want
 	select1button = createButton('Select Jade');
 	  select1button.style('font-size', '20px');
@@ -533,4 +630,5 @@ function keyPressed(){ // controls the scenes
 	if(keyCode == ENTER){
 		scenes += 1;
 	}
+}
 }
