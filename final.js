@@ -18,6 +18,7 @@ function preload(){
 	MBedroom = loadImage('Images/MBedroom.jpeg');// Minis bedroom
 	field = loadImage('Images/soccer_field.webp');
 	highschool = loadImage('Images/highschool.webp');
+	classroom = loadImage('Images/classroom.webp');
 	font1 = loadFont('font/font1.ttf');
 	font2 = loadFont('font/font2.ttf');
 	font3 = loadFont('font/font3.otf');
@@ -278,7 +279,29 @@ function draw() {
 		}
 	}
 	if(scenes == 7){
+		if(select1 == true){
 		decisionOne();
+			if(yesone == true){
+				yesbutton.hide();
+				nobutton.hide();				
+			}			
+			if(noone == true){
+				yesbutton.hide();
+				nobutton.hide();
+			}
+			//pickOne();
+		}
+	}
+	if(scenes == 8){
+		if(select1 == true){
+				yesbutton.hide();
+				nobutton.hide();
+		clear();
+		image(classroom,0,0,800,800);
+			Students(600,400);
+			fill(28,233,255);
+			rect(0,0,700,100,30);
+		}
 	}
 }
 
@@ -292,15 +315,63 @@ function decisionOne(){
 	yesbutton.style('font-size','20px');
 	yesbutton.style('color:green');
 	yesbutton.position(250,100);
-	yesbutton.mousePressed();
-	nobutton = createButton('NO');
+	yesbutton.mousePressed(yesOne);
+//	yesbutton.mousePressed(yesOne);
+		nobutton = createButton('NO');
 	nobutton.style('font-size','20px');
 	nobutton.style('color:red');
 	nobutton.position(350,100);
-	nobutton.mousePressed();
+	nobutton.mousePressed(noOne);
+	//pickOne();
+//	nobutton.mousePressed(noOne);
 }
 
-function 
+function pickOne(){
+	clear();
+	if(yesone == true){
+		background(242,66,245);
+	fill(22,254,77);
+	textFont(font1,20);
+	text('yay youre now apaprt of the team and soon in your',0,400);
+	text('junior year youll become captain',0,430);
+	yes+=1;
+	}
+	if(noone == true){
+		background(242,66,245);
+	fill(254,34,34);
+	textFont(font1,20);
+	text('Aww you didnt join.You couldve done so well',0,400);
+	no+=1;
+	}
+}
+
+function yesOne(){
+yesone = true;
+	noone = false;
+	/*
+//	yesbutton.hide();
+//	nobutton.hide();
+	background(242,66,245);
+	fill(22,254,77);
+	textFont(font1,20);
+	text('yay youre now apaprt of the team and soon in your',0,400);
+	text('junior year youll become captain',0,430);
+	yes+=1;
+	*/
+}
+function noOne(){
+	noone = true;
+	yesone = false;
+	/*
+//	yesbutton.hide();
+//	nobutton.hide();
+	background(242,66,245);
+	fill(254,34,34);
+	textFont(font1,20);
+	text('Aww you didnt join.You couldve done so well',0,400);
+	no+=1;
+	*/
+}
 
 function startScene(){ // the buttons that are used to pick the character you want
 	select1button = createButton('Select Jade');
