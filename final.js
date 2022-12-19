@@ -28,7 +28,7 @@ function setup() {
 	createCanvas(800,800);
 	startScene();
 	for(i = 0; i < 30; i++){
-		studentArray.push(new firstYears(i));
+		miniArray.push(new mini(i));
 	}
 	for(i = 0; i < 5; i++){
 		studentArray.push(new firstYears(i));
@@ -39,13 +39,14 @@ function setup() {
 
 function draw() {
 		if(scenes == 0){
-		
 		characterPick();
+			textFont(font1, 15);
+			fill(0);
+			text('press the enter or return key to continue through scenes',0,200);
 	}
 	if(scenes == 1){ // color for the title matches with jade's color pattern
 		//background(28,233,255);
 		select1button.hide();
-			select2button.hide();
 			select3button.hide();
 		if(select1 == true){
 			image(highschool,0,0, 1000, 800);
@@ -60,19 +61,7 @@ function draw() {
 			text('press the enter or return key to continue through scenes',100,250);
 			Jade(400,400);
 		}
-		if(select2 == true){ // color for the title matches with sasha's color pattern
-			image(highschool,0,0, 1000, 800);
-		textFont(font1,100);
-			fill(145,255,203);
-		text('WELCOME to', 0,150);
-		textFont(font2,70);
-			fill(186,61,255);
-		text('HighSchool High',100,230); // lol thats corny
-			textFont(font1, 15);
-			fill(0);
-			text('press the enter or return key to continue through scenes',100,250);
-			Sasha(400,400);
-		}
+	
 		if(select3 == true){ // color for the title matches with mini's color pattern
 			image(highschool,0,0, 1000, 800);
 		textFont(font1,100);
@@ -95,46 +84,33 @@ function draw() {
 		///-----draw jade-----//
 		if (select1 == true) { // code for when jade is selected
 			select1button.hide();
-			select2button.hide();
 			select3button.hide();
 			clear();
 			image(auditorium,0,0, 800, 800);
 				for(j=0;j<30;j++){
-  studentArray[j].show(); // this is the array for the students
+ 				 	miniArray[j].move(); // this is the array for the students
+					miniArray[j].update();
+					miniArray[j].display();
 }
-			fill(0,0,0,50);
-			rect(100,100,700,100,30);
+			fill(28,233,255);
+			rect(0,0,700,100,30);
 			fill(255);
 			textSize(17);
-			text('Today is Jades first day of highschool and shes supper excited to finally be a highschooler', 100,150);
+			text('Today is Jades first day of highschool and shes supper excited', 0,50);
 			Jade(350,400);
 		}
-		if (select2 == true) { // code for when sasha is selected
-			select1button.hide();
-			select2button.hide();
-			select3button.hide();
-			clear();
-			image(auditorium,0,0, 800, 800);
-				for(j=0;j<30;j++){
-  studentArray[j].show(); // this is the array for the students
-}
-			fill(0,0,0,50);
-			rect(100,100,700,100,30);
-			fill(255);
-			textSize(17);
-			text('Today is Sasha first day of highschool and shes supper excited to finally be a highschooler', 100,150);
-			Sasha(350,400);
-		}
+		
 		if (select3 == true) { // code for when mini is selected
 			select1button.hide();
-			select2button.hide();
 			select3button.hide();
 			clear();
 			image(auditorium,0,0, 800, 800);
 				for(j=0;j<30;j++){
-  studentArray[j].show(); // this is the array for the students
+   miniArray[j].move(); // this is the array for the students
+					miniArray[j].update();
+					miniArray[j].display();  // this is the array for the students
 }
-			fill(0,0,0,50);
+		fill(28,233,255);
 			rect(100,100,700,100,30);
 			fill(255);
 			textSize(17);
@@ -145,46 +121,29 @@ function draw() {
 	if(scenes == 3){
 		if (select1 == true) { // code for when jade is selected
 			select1button.hide();
-			select2button.hide();
 			select3button.hide();
 			clear();
 			image(lunchroom,0,0, 800, 800);
 				for(j=0;j<5;j++){
   studentArray[j].show(); // this is the array for the students
 }
-			fill(0,0,0,50);
-			rect(100,100,700,100,30);
+			fill(28,233,255);
+			rect(0,0,720,100,30);
 			fill(255);
-			textSize(15);
-			text('Jades first day of school was a success and she was able to met some really awesome people', 100,150);
+			textFont(font1,15);
+			text('Jades first day of school was a success and she was able to meet some', 0,50);
+			text('really awesome people',0,70);
 			Jade(350,400);
-		}
-		if (select2 == true) { // code for when sasha is selected
-			select1button.hide();
-			select2button.hide();
-			select3button.hide();
-			clear();
-			image(lunchroom,0,0, 800, 800);
-				for(j=0;j<5;j++){
-  studentArray[j].show(); // this is the array for the students
-}
-			fill(0,0,0,50);
-			rect(100,100,700,100,30);
-			fill(255);
-			textSize(15);
-			text('Sashas first day of school was a success and she was able to met some really awesome people', 100,150);
-			Sasha(350,400);
 		}
 		if (select3 == true) { // code for when mini is selected
 			select1button.hide();
-			select2button.hide();
 			select3button.hide();
 			clear();
 			image(lunchroom,0,0, 800, 800);
 		for(j=0;j<5;j++){
   studentArray[j].show(); // this is the array for the students
 }
-			fill(0,0,0,50);
+			fill(28,233,255);
 			rect(100,100,700,100,30);
 			fill(255);
 			textSize(15);
@@ -196,13 +155,12 @@ function draw() {
 	if(scenes == 4){
 		if (select1 == true) { // code for when jade is selected
 			select1button.hide();
-			select2button.hide();
 			select3button.hide();
 			clear();
 			image(JBedroom,0,0, 800, 800);
 				
-			fill(0,0,0,50);
-			rect(100,100,700,100,30);
+			fill(28,233,255);
+			rect(0,0,710,100,30);
 			fill(255);
 			textSize(13);
 			// thought bubble
@@ -211,45 +169,23 @@ function draw() {
 			circle(540,410,30);
 			circle(670,350,230);
 			fill(0);
-			textSize(12);
-			text('if I do well hopefully I can get into NYU!!', 570,350);
+			textFont(font1,12);
+			text('if I do well hopefully I can', 570,350);
+			text('get into NYU!!', 570,370);
 			fill(255);
-			textSize(15)
-			text('After Jades First Day she thought to herself of the endless possibilites of highschool', 100,150);
+			textFont(font1,15);
+			text('After Jades First Day she thought to herself of the', 0,50);
+			text('endless possibilites of highschool', 0,70);
 			Jade(350,400);
 		}
-		if (select2 == true) { // code for when sasha is selected
-			select1button.hide();
-			select2button.hide();
-			select3button.hide();
-			clear();
-			image(SBedroom,0,0, 800, 800);
-			
-			fill(0,0,0,50);
-			rect(100,100,700,100,30);
-			fill(255);
-			textSize(15);
-			// thought bubble
-			circle(500,440,10);
-			circle(520,430,20);
-			circle(540,410,30);
-			circle(670,350,230);
-			fill(0);
-			textSize(12);
-			text('if I do well hopefully I can get into NYU!!', 570,350);
-			fill(255);
-			textSize(15)
-			text('After Sasha First Day she thought to herself of the endless possibilites of highschool', 100,150);
-			Sasha(350,400);
-		}
+	
 		if (select3 == true) { // code for when mini is selected
 			select1button.hide();
-			select2button.hide();
 			select3button.hide();
 			clear();
 			image(MBedroom,0,0, 800, 800);
 				
-			fill(0,0,0,50);
+		fill(28,233,255);
 			rect(100,100,700,100,30);
 			fill(255);
 			textSize(15);
@@ -272,51 +208,32 @@ function draw() {
 		
 	if (select1 == true) { // code for when jade is selected
 			select1button.hide();
-			select2button.hide();
 			select3button.hide();
 			clear();
 			image(field,0,0, 800, 800);
 				Mini(550,200);
 			Sasha(650,200);
-			fill(0,0,0,50);
-			rect(100,100,700,100,30);
+			fill(28,233,255);
+			rect(0,0,700,100,30);
 			fill(255);
 			textSize(13);
-			text('Jade always had a passion for soccer. During recess she found herself getting lost in the game', 100,150);
+			text('Jade always had a passion for soccer. During recess she found herself', 0,50);
+			text('getting lost in the game',0,70);
 			Jade(x,500);
 			x+=3;
 			fill(255);
 			circle(x+300,700,50);
 			x+=3;
 		}
-		if (select2 == true) { // code for when sasha is selected
-			select1button.hide();
-			select2button.hide();
-			select3button.hide();
-			clear();
-			image(field,0,0, 800, 800);
-			Jade(550,200);
-			Mini(650,200);
-			fill(0,0,0,50);
-			rect(100,100,700,100,30);
-			fill(255);
-			textSize(15);
-			text('Sasha always had a passion for soccer. During recess she found herself getting lost in the game', 100,150);
-			Sasha(x,500);
-			x+=3;
-			fill(255);
-			circle(x+300,700,50);
-			x+=3;
-		}
+		
 		if (select3 == true) { // code for when mini is selected
 			select1button.hide();
-			select2button.hide();
 			select3button.hide();
 			clear();
 			image(field,0,0, 800, 800);		
 			Jade(550,200);
 			Sasha(650,200);
-			fill(0,0,0,50);
+			fill(28,233,255);
 			rect(100,100,700,100,30);
 			fill(255);
 			textSize(15);
@@ -332,54 +249,58 @@ function draw() {
 	if(scenes == 6){
 			if (select1 == true) { // code for when jade is selected
 			select1button.hide();
-			select2button.hide();
 			select3button.hide();
 			clear();
-			image(field,100,100, 800, 800);
+			image(field,0,0, 800, 800);
 				
-			fill(0,0,0,50);
-			rect(100,100,700,100,30);
+			fill(28,233,255);
+			rect(0,0,700,100,30);
 			fill(255);
-			textSize(13);
-			text('After Jades First Day she thought to herself of the endless possibilites of highschool', 100,150);
+		  textFont(font1,13);
+			text('Coach saw her and then asked her to come join the soccer team', 0,50);
 			Jade(350,450);
 			Coach(500,400);
 		}
-		if (select2 == true) { // code for when sasha is selected
-			select1button.hide();
-			select2button.hide();
-			select3button.hide();
-			clear();
-			image(field,100,100, 800, 800);
-			fill(0,0,0,50);
-			rect(100,100,700,100,30);
-			fill(255);
-			textSize(15);
-			text('After Sasha First Day she thought to herself of the endless possibilites of highschool', 100,150);
-			Sasha(350,450);
-			Coach(500,400);
-		}
+		
 		if (select3 == true) { // code for when mini is selected
 			select1button.hide();
-			select2button.hide();
 			select3button.hide();
 			clear();
-			image(field,100,100, 800, 800);
+			image(field,0,0, 800, 800);
 				
-			fill(0,0,0,50);
-			rect(100,100,700,100,30);
+			fill(28,233,255);
+			rect(0,0,700,100,30);
 			fill(255);
-			textSize(15);
-			text('After Minis First Day she thought to herself of the endless possibilites of highschool', 100,150);
+			textFont(font1,15);
+			text('After Minis First Day she thought to herself of the endless possibilites of highschool', 0,150);
 			Mini(350,450);
 			Coach(500,400);
 		}
-		
-		
 	}
-	
-	
+	if(scenes == 7){
+		decisionOne();
+	}
 }
+
+function decisionOne(){
+	fill(28,233,255);
+	rect(0,0,700,100,30);
+	fill(0);
+	textFont(font1,20);
+	text('Do you choose to join the soccer team', 0 ,50);
+	yesbutton = createButton('YES');
+	yesbutton.style('font-size','20px');
+	yesbutton.style('color:green');
+	yesbutton.position(250,100);
+	yesbutton.mousePressed();
+	nobutton = createButton('NO');
+	nobutton.style('font-size','20px');
+	nobutton.style('color:red');
+	nobutton.position(350,100);
+	nobutton.mousePressed();
+}
+
+function 
 
 function startScene(){ // the buttons that are used to pick the character you want
 	select1button = createButton('Select Jade');
@@ -388,12 +309,6 @@ function startScene(){ // the buttons that are used to pick the character you wa
 	select1button.style('background-color', '#4DD3FF');
 		select1button.mousePressed(selectOne);
 	select1button.position(200,100);
-	select2button = createButton('Select Sasha');
-	select2button.style('font-size', '20px');
-		select2button.style('color:blue');
-	select2button.style('background-color', '#8F96FF')
-	select2button.mousePressed(selectTwo);
-	select2button.position(400,100);
 	select3button = createButton('Select Mini');
 	select3button.style('font-size', '20px');
 		select3button.style('color:pink');
@@ -455,20 +370,14 @@ function rect1(){
 function selectOne(){ // when Jade is picked
 	rect1();
 	select1 = true;
-	select2 = false;
-	select3 = false;
-}
-
-function selectTwo(){ // when Sasha is picked
-	select2 = true;
-	select1 = false;
+	
 	select3 = false;
 }
 
 function selectThree(){ // when Mini is picked
 	select3 = true;
 	select1 = false;
-	select2 = false;
+	
 }
 
 
@@ -481,12 +390,6 @@ function characterPick(){
 		Jade(350,300);
 	}
 	
-	if(select2 == true){
-		textFont(font3,15);
-		fill(0);
-		text('This is Sasha. Jade loves to play soccer her favorite color is blue and her dream school is to go to CalU',100,600);
-	Sasha(350,300);
-	}
 	if(select3 == true){
 		textFont(font3,15);
 		fill(0);
@@ -496,8 +399,16 @@ function characterPick(){
 	
 }
 function Students(x,y){ // code for random students
+	fill(128,128,128);
 	circle(x+100,y+100,70);
 	rect(x+60,y+140,80,120,10); 
+}
+
+function miniStudents(x,y){
+	fill(128,128,128);
+	stroke(0);
+	 circle(x+80,y+120,30);
+	rect(x+60,y+140,40,60,10);
 }
 
 function Coach(x,y){
@@ -511,6 +422,25 @@ function Coach(x,y){
   rect(x+90,y+160,20,140,10);
   rect(x+120,y+140,20,160,10);
 	
+}
+
+class mini {
+	constructor(){
+		// this is code that I used in my midterm I'm utilizing it for my npc's
+	 this.position = new createVector(random(width),random(height));
+    this.velocity = new createVector(1); 
+  }
+  move(){
+    this.position.add(this.velocity);
+  }
+  update(){
+    if(this.position.x > width ){
+      this.position.x = 0;
+    }
+	}
+	display(){
+		miniStudents(this.position.x, 400);
+	}
 }
 
 class firstYears{ // this is a class I made for the students
